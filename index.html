@@ -4,31 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BADLAN BAMON — Link Hub</title>
-<meta name="description" content="Link hub BADLAN BAMON — Drone / FPV / Cinematic Travel Creator">
+<meta name="description" content="Link hub BADLAN BAMON — Drone · FPV · Cinematic Travel Creator">
 <style>
   :root{
-    --bg:#060a12;
-    --panel:rgba(255,255,255,.045);
-    --border:rgba(255,255,255,.10);
-    --text:#e8eef7;
-    --muted:#8ba0b8;
-    --cyan:#22d3ee;
-    --orange:#f97316;
+    --bg:#060a12; --panel:rgba(255,255,255,.045); --border:rgba(255,255,255,.10);
+    --text:#e8eef7; --muted:#8ba0b8; --cyan:#22d3ee; --orange:#f97316;
     --grad:linear-gradient(135deg,#22d3ee,#f97316);
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{
-    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
-    background:var(--bg); color:var(--text);
-    min-height:100vh; position:relative; overflow-x:hidden;
-  }
-  /* ambient glow + grain */
-  body::before{
-    content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    background:var(--bg); color:var(--text); min-height:100vh; position:relative; overflow-x:hidden;}
+  body::before{content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
     background:
       radial-gradient(600px 420px at 85% -5%, rgba(34,211,238,.16), transparent 60%),
-      radial-gradient(700px 500px at 5% 110%, rgba(249,115,22,.12), transparent 60%);
-  }
+      radial-gradient(700px 500px at 5% 110%, rgba(249,115,22,.12), transparent 60%);}
   .stars{position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
     background-image:
       radial-gradient(1.2px 1.2px at 20% 30%, #fff, transparent),
@@ -37,55 +26,29 @@
       radial-gradient(1px 1px at 85% 55%, #cfe8ff, transparent),
       radial-gradient(1.2px 1.2px at 10% 85%, #fff, transparent),
       radial-gradient(1px 1px at 60% 90%, #fff, transparent),
-      radial-gradient(1px 1px at 92% 80%, #fff, transparent);
-  }
-  .wrap{position:relative; z-index:1; max-width:520px; margin:0 auto;
-    padding:56px 24px 64px;}
-  /* ── profile ── */
-  .avatar{
-    width:120px; height:120px; margin:0 auto 20px; border-radius:50%;
-    position:relative;
-    background:linear-gradient(135deg,#22d3ee,#f97316);
-    padding:3px;
-    box-shadow:0 0 0 6px rgba(34,211,238,.10), 0 0 40px rgba(249,115,22,.25);
-  }
-  .avatar img{width:100%; height:100%; border-radius:50%; object-fit:cover; display:block;
-    background:#0b1626;}
-  .avatar .status{
-    position:absolute; bottom:4px; right:4px; width:26px; height:26px; border-radius:50%;
-    background:#22c55e; border:3px solid #060a12; box-shadow:0 0 10px rgba(34,197,94,.8);
-  }
+      radial-gradient(1px 1px at 92% 80%, #fff, transparent);}
+  .wrap{position:relative; z-index:1; max-width:520px; margin:0 auto; padding:56px 24px 64px;}
+  .avatar{width:120px; height:120px; margin:0 auto 20px; border-radius:50%; position:relative;
+    background:var(--grad); padding:3px;
+    box-shadow:0 0 0 6px rgba(34,211,238,.10), 0 0 40px rgba(249,115,22,.25);}
+  .avatar img{width:100%; height:100%; border-radius:50%; object-fit:cover; display:block; background:#0b1626;}
+  .avatar .status{position:absolute; bottom:4px; right:4px; width:26px; height:26px; border-radius:50%;
+    background:#22c55e; border:3px solid #060a12; box-shadow:0 0 10px rgba(34,197,94,.8);}
   .name{text-align:center; font-size:26px; font-weight:800; letter-spacing:.5px;}
   .name span{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
   .tagline{text-align:center; color:var(--muted); font-size:14.5px; margin-top:8px; line-height:1.5;}
-  .tagline b{color:#f97316; font-weight:600;}
-  .socials{display:flex; justify-content:center; gap:12px; margin:22px 0 30px;}
-  .soc{
-    width:46px; height:46px; border-radius:14px; display:flex; align-items:center;
-    justify-content:center; background:var(--panel); border:1px solid var(--border);
-    color:var(--text); text-decoration:none; transition:.25s;
-  }
-  .soc:hover{transform:translateY(-3px); border-color:var(--cyan); color:var(--cyan);
-    box-shadow:0 8px 24px rgba(34,211,238,.18);}
-  .soc svg{width:22px; height:22px; fill:currentColor;}
-  /* ── links ── */
-  .links{display:flex; flex-direction:column; gap:14px;}
-  .link{
-    display:flex; align-items:center; gap:16px; text-decoration:none;
-    background:var(--panel); border:1px solid var(--border);
-    border-radius:18px; padding:16px 20px; color:var(--text);
-    transition:.25s; position:relative; overflow:hidden;
-    backdrop-filter:blur(10px);
-  }
-  .link::before{
-    content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
-    background:var(--grad); opacity:0; transition:.25s;
-  }
+  .links{display:flex; flex-direction:column; gap:14px; margin-top:30px;}
+  .link{display:flex; align-items:center; gap:16px; text-decoration:none;
+    background:var(--panel); border:1px solid var(--border); border-radius:18px;
+    padding:16px 20px; color:var(--text); transition:.25s; position:relative; overflow:hidden;
+    backdrop-filter:blur(10px);}
+  .link::before{content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+    background:var(--grad); opacity:0; transition:.25s;}
   .link:hover{transform:translateY(-2px); border-color:rgba(34,211,238,.4);
     box-shadow:0 10px 30px rgba(0,0,0,.45);}
   .link:hover::before{opacity:1;}
   .link .icon{width:44px; height:44px; border-radius:12px; flex-shrink:0;
-    display:flex; align-items:center; justify-content:center; font-size:20px;
+    display:flex; align-items:center; justify-content:center;
     background:rgba(255,255,255,.06); border:1px solid var(--border);}
   .link .icon svg{width:22px; height:22px; fill:currentColor;}
   .link .txt{flex:1;}
@@ -93,96 +56,28 @@
   .link .d{font-size:12.5px; color:var(--muted); margin-top:2px;}
   .link .arrow{color:var(--muted); font-size:18px; transition:.25s;}
   .link:hover .arrow{color:var(--cyan); transform:translateX(4px);}
-  /* featured (bigger) */
   .link.feat{background:linear-gradient(135deg, rgba(34,211,238,.14), rgba(249,115,22,.12));
     border-color:rgba(34,211,238,.35);}
-  /* ── footer ── */
   .foot{text-align:center; margin-top:40px; color:#5b7088; font-size:12.5px;}
   .foot b{color:#7f95ad;}
   .power{margin-top:6px; font-size:11.5px; letter-spacing:.5px;}
-  .power i{color:#f97316; font-style:normal;}
 </style>
 </head>
 <body>
 <div class="stars"></div>
 <div class="wrap">
-
-  <!-- PROFILE -->
-  <div class="avatar">
-    <img src="" alt="BADLAN BAMON" id="avatarImg">
-    <div class="status"></div>
-  </div>
+  <div class="avatar"><div class="status"></div></div>
   <div class="name">BADLAN <span>BAMON</span></div>
-  <div class="tagline">Drone · FPV · Cinematic Travel Creator<br>
-    <b>&#9992; Explore &amp; Capture the World from Above</b></div>
-
-  <!-- SOCIAL ROW -->
-  <div class="socials" id="socialRow">
-    <a class="soc" href="https://www.instagram.com/badlan_" target="_blank" rel="noopener" title="Instagram" data-save="instagram">
-      <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.3-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1zm0 2c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.8.4-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.2.3-.3.7-.4 1.8-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.4 1.8.2.5.4.8.7 1.1.3.3.6.5 1.1.7.3.2.7.3 1.8.4 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.8-.4.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.2-.3.3-.7.4-1.8.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.4-1.8-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.3-.2-.7-.3-1.8-.4-1.3-.1-1.7-.1-4.8-.1zm0 3.4a5.4 5.4 0 1 1 0 10.8 5.4 5.4 0 0 1 0-10.8zm0 2a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8zm5.6-3.6a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z"/></svg>
-    </a>
+  <div class="tagline">Drone · FPV · Cinematic Travel Creator</div>
+  <div class="links">
+<a class="link feat" href="https://www.instagram.com/badlan_" target="_blank" rel="noopener"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.3-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1zm0 2c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.8.4-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.2.3-.3.7-.4 1.8-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.4 1.8.2.5.4.8.7 1.1.3.3.6.5 1.1.7.3.2.7.3 1.8.4 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.8-.4.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.2-.3.3-.7.4-1.8.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.4-1.8-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.3-.2-.7-.3-1.8-.4-1.3-.1-1.7-.1-4.8-.1zm0 3.4a5.4 5.4 0 1 1 0 10.8 5.4 5.4 0 0 1 0-10.8zm0 2a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8zm5.6-3.6a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z"/></svg></div><div class="txt"><span class="t">Instagram</span><span class="d">@badlan_ — FPV &amp; cinematic shots</span></div><span class="arrow">&#8594;</span></a>
+<a class="link" href="https://www.tiktok.com/@badlan_" target="_blank" rel="noopener"><div class="icon"><svg viewBox="0 0 24 24"><path d="M19.6 6.7a5.5 5.5 0 0 1-3.4-4.7h-3.2v12.9a2.7 2.7 0 1 1-2.7-2.7c.3 0 .6 0 .8.1V8.9a6 6 0 1 0 5.1 5.9V10a8.8 8.8 0 0 0 4.3 1.2V8a6 6 0 0 1-1.9-1.3z"/></svg></div><div class="txt"><span class="t">TikTok</span><span class="d">Video pendek FPV &amp; travel</span></div><span class="arrow">&#8594;</span></a>
+<a class="link" href="https://www.youtube.com/@badlan" target="_blank" rel="noopener"><div class="icon"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.2C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.2c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.2A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.5 15.5v-7l6.2 3.5z"/></svg></div><div class="txt"><span class="t">YouTube</span><span class="d">Cinematic FPV films</span></div><span class="arrow">&#8594;</span></a>
+<a class="link" href="https://wa.me/6281234567890" target="_blank" rel="noopener"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.3 7.6 7.6 0 0 1-1.4-1.9c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.8-.3z"/></svg></div><div class="txt"><span class="t">WhatsApp</span><span class="d">Kolaborasi &amp; project</span></div><span class="arrow">&#8594;</span></a>
+<a class="link" href="https://badlanvps.tail7bc355.ts.net/" target="_blank" rel="noopener"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2 3 7v10l9 5 9-5V7zm0 2.2 6.2 3.4L12 11 5.8 7.6zM5 9.7l6 3.3v6.6l-6-3.3zm8 9.9v-6.6l6-3.3v6.6z"/></svg></div><div class="txt"><span class="t">Portfolio</span><span class="d">Portofolio &amp; karya lengkap</span></div><span class="arrow">&#8594;</span></a>
+<a class="link" href="mailto:hello@badlan.id" target="_self" rel="noopener"><div class="icon"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg></div><div class="txt"><span class="t">Email</span><span class="d">Untuk kerja sama</span></div><span class="arrow">&#8594;</span></a>
   </div>
-
-  <!-- LINKS -->
-  <div class="links" id="links">
-  </div>
-
-  <div class="foot">
-    <b>BADLAN BAMON</b> — FPV Cinematic Aerial<br>
-    <div class="power">Built with <i>&#10022;</i> for the sky</div>
-  </div>
+  <div class="foot"><b>BADLAN BAMON — FPV Cinematic Aerial</b><div class="power">Built with ✦ for the sky</div></div>
 </div>
-
-<script>
-  // ── KONFIGURASI LINK — edit di sini ──
-  const PROFILE = {
-    avatar: "",            // URL foto profil (biarkan kosong untuk default)
-    name: "BADLAN BAMON",
-    tagline: "Drone · FPV · Cinematic Travel Creator"
-  };
-
-  // Icon SVG (fill currentColor)
-  const I = {
-    instagram: '<svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.3-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1zm0 2c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.8.4-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.2.3-.3.7-.4 1.8-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.4 1.8.2.5.4.8.7 1.1.3.3.6.5 1.1.7.3.2.7.3 1.8.4 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.8-.4.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.2-.3.3-.7.4-1.8.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.4-1.8-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.3-.2-.7-.3-1.8-.4-1.3-.1-1.7-.1-4.8-.1zm0 3.4a5.4 5.4 0 1 1 0 10.8 5.4 5.4 0 0 1 0-10.8zm0 2a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8zm5.6-3.6a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z"/></svg>',
-    tiktok: '<svg viewBox="0 0 24 24"><path d="M19.6 6.7a5.5 5.5 0 0 1-3.4-4.7h-3.2v12.9a2.7 2.7 0 1 1-2.7-2.7c.3 0 .6 0 .8.1V8.9a6 6 0 1 0 5.1 5.9V10a8.8 8.8 0 0 0 4.3 1.2V8a6 6 0 0 1-1.9-1.3z"/></svg>',
-    youtube: '<svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.2C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.2c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.2A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.5 15.5v-7l6.2 3.5z"/></svg>',
-    whatsapp: '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.3 7.6 7.6 0 0 1-1.4-1.9c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.8-.3z"/></svg>',
-    portfolio: '<svg viewBox="0 0 24 24"><path d="M12 2 3 7v10l9 5 9-5V7zm0 2.2 6.2 3.4L12 11 5.8 7.6zM5 9.7l6 3.3v6.6l-6-3.3zm8 9.9v-6.6l6-3.3v6.6z"/></svg>',
-    email: '<svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>',
-    map: '<svg viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 5.5 7 12 8 12s8-6.5 8-12a8 8 0 0 0-8-8zm0 10.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>'
-  };
-
-  // ── DAFTAR LINK — edit/urutkan di sini ──
-  // featured: true → kartu lebih menonjol
-  const LINKS = [
-    { icon:"instagram",  href:"https://www.instagram.com/badlan_",   title:"Instagram",  desc:"@badlan_ — FPV & cinematic shots", featured:true },
-    { icon:"tiktok",     href:"https://www.tiktok.com/@badlan_",     title:"TikTok",     desc:"Video pendek FPV & travel" },
-    { icon:"youtube",    href:"https://www.youtube.com/@badlan",     title:"YouTube",    desc:"Cinematic FPV films" },
-    { icon:"whatsapp",   href:"https://wa.me/6281234567890",         title:"WhatsApp",   desc:"Kolaborasi & project" },
-    { icon:"portfolio",  href:"https://badlanvps.tail7bc355.ts.net/",title:"Portfolio",  desc:"Portofolio & karya lengkap" },
-    { icon:"email",      href:"mailto:hello@badlan.id",              title:"Email",      desc:"Untuk kerja sama" }
-  ];
-
-  // ── render ──
-  document.title = PROFILE.name + " — Link Hub";
-  const av = document.getElementById("avatarImg");
-  av.src = PROFILE.avatar || ("data:image/svg+xml;utf8," + encodeURIComponent(
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" fill="#0b1626"/><text x="60" y="68" font-size="42" text-anchor="middle" fill="#22d3ee" font-family="Segoe UI">' + (PROFILE.name[0]||'B') + '</text></svg>'));
-  document.querySelector(".name").innerHTML = PROFILE.name.replace(" ", " <span>") + "</span>";
-  document.querySelector(".tagline").innerHTML = PROFILE.tagline.replace(/\n/g, "<br>");
-
-  const box = document.getElementById("links");
-  LINKS.forEach(l => {
-    const a = document.createElement("a");
-    a.className = "link" + (l.featured ? " feat" : "");
-    a.href = l.href;
-    a.target = l.href.startsWith("http") ? "_blank" : "_self";
-    a.rel = "noopener";
-    a.innerHTML = `<div class="icon">${I[l.icon]||'<span>🔗</span>'}</div>
-      <div class="txt"><span class="t">${l.title}</span><span class="d">${l.desc||''}</span></div>
-      <span class="arrow">&#8594;</span>`;
-    box.appendChild(a);
-  });
-</script>
 </body>
 </html>
